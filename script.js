@@ -1,17 +1,14 @@
 // JavaScript code for adding flashcards dynamically
-const flashcardContainer = document.getElementById("flashcard-container");
+document.addEventListener("DOMContentLoaded", function () {
+    const stateList = document.getElementById("state-list");
+    const stateInfo = document.getElementById("state-info");
 
-const states = [
-    { name: "Andhra Pradesh", capital: "Amaravati" },
-    { name: "Karnataka", capital: "Bangalore" },
-];
-
-states.forEach(state => {
-    const flashcard = document.createElement("div");
-    flashcard.classList.add("flashcard");
-    flashcard.innerHTML = `
-        <h2>${state.name}</h2>
-        <p>Capital: ${state.capital}</p>
-    `;
-    flashcardContainer.appendChild(flashcard);
+    stateList.addEventListener("click", function (event) {
+        if (event.target.tagName === "LI") {
+            const selectedState = event.target.getAttribute("data-state");
+            // You can replace the following text with real information about each state.
+            stateInfo.textContent = `You selected ${selectedState}. Information about ${selectedState} goes here.`;
+        }
+    });
 });
+
